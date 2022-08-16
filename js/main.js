@@ -22,13 +22,24 @@ function getFetch(){
 
 document.getElementById('previous-button').addEventListener('click', displayPreviousDrink);
 document.getElementById('pause-button').addEventListener('click', pauseDrinkDisplay);
+document.getElementById('resume-button').addEventListener('click', resumeDrinkDisplay);
 document.getElementById('next-button').addEventListener('click', displayNextDrink);
 
 let currentDrink = 0;
 
+let nIntervId = setInterval(displayNextDrink, 3000);
+
+nIntervId;
+
 function displayPreviousDrink() {
 
-  currentDrink--;
+  if (currentDrink === 0) {
+    currentDrink = drinkChoiceArr.length;
+  } else {
+    currentDrink--;
+  }
+
+
 
   document.querySelector('h2').innerText = drinkChoiceArr[currentDrink].strDrink;
   document.querySelector('img').src = drinkChoiceArr[currentDrink].strDrinkThumb;
@@ -36,11 +47,21 @@ function displayPreviousDrink() {
 }
 
 function pauseDrinkDisplay() {
+  clearInterval(nIntervId);
+  // release our intervalID from the variable
+  nIntervId = null;
+}
 
+function resumeDrinkDisplay() {
+  let nIntervId = setInterval(displayNextDrink, 3000);
 }
 
 function displayNextDrink() {
-  currentDrink++;
+  if (currentDrink === drinkChoiceArr.length) {
+    currentDrink = 0;
+  } else {
+    currentDrink++;
+  }
 
   document.querySelector('h2').innerText = drinkChoiceArr[currentDrink].strDrink;
   document.querySelector('img').src = drinkChoiceArr[currentDrink].strDrinkThumb;

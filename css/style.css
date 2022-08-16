@@ -10,10 +10,60 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
+
+body {
+  background-image: url("../img/cocktail-bar.jpg");
+  object-fit: cover;
+}
+
 img{
   display: block;
   margin: 0 auto;
+  width: 500px;
+  height: auto;
 }
+
+input {
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+
+#get-cocktail-button {
+  text-align: center;
+  margin: auto;
+  display: flex;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.buttons {
+  text-align: center;
+  /* margin: auto; */
+
+}
+
+h1, h2, h3 {
+  text-align: center;
+  color: white;
+  background: #fdabcf;
+  /* padding: 1%; */
+  border: 2px solid #f7c528;
+  border-radius: 5%;
+  margin: 1% auto;
+  width: 20%;
+}
+
+h3 {
+  width: 50%;
+}
+
+
 
 
 /******************************************
