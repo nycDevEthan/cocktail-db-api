@@ -12,97 +12,101 @@
 /* LAYOUT
 /*******************************************/
 
-body {
-  background-image: url("../img/cocktail-bar.jpg");
-  object-fit: cover;
+#drink-search {
+  text-align: center;
 }
 
 input, button {
   font-size: 2rem;
+  margin: 1%;
 }
 
 input {
-  background: pink;
-}
-
-button {
-  cursor: pointer;
-  /* color: #fff4e0; */
-  background: #fcfc8a;
-  border: none;
-}
-
-button:hover {
-  background: rgba(255, 255, 255, .5);
+  height: 50px;
+  font-size: 3rem;
 }
 
 input {
-  display: flex;
   text-align: center;
   margin: 20px auto;
 }
 
-#get-cocktail-button {
+button {
+  font-size: 3rem;
+  height: 50px;
   text-align: center;
   margin: auto;
-  display: flex;
+  cursor: pointer;
+  color: #e99920;
+  background: #6e1217;
+  border: none;
 }
 
 #buttons {
   display: flex;
   justify-content: center;
+  margin-bottom: 2%;
 }
 
-.buttons {
+span {
+  width: 100px;
   text-align: center;
-  margin: 2px;
+  cursor: pointer;
+  background: #6e1217;
+  padding: 5px;
+  border: 2px solid #e99920;
+  margin: 5px;
 }
 
 #drink-info {
+  justify-content: center;
   display: flex;
   flex-flow: row;
-  gap: 20px;
-  /* margin: 2% 0 0 0; */
 }
 
-h1, h2, h3 {
+p, h1, h2, h3, h4 {
   text-align: center;
-  color: white;
-  background: #94ddd4;
+  color: #e99920;
+  background: #6e1217;
   padding: 1%;
-  border: 2px solid #febcbd;
-  /* border-radius: 5%; */
   margin: 1% auto;
   width: auto;
 }
 
 h1 {
   font-size: 5rem;
-  width: 30%;
+  width: 50%;
 }
 
-h2 {
+h2, h3, h4 {
   font-size: 3rem;
-  /* margin-top: 100px; */
+  width: 500px;
 }
 
-h3 {
+h4 {
+  width: 50%;
+}
+
+p {
   font-size: 3rem;
+  font-weight: 700;
 }
 
 img{
-  /* display: none; */
   width: 750px;
-  height: auto;
+  height: 1000px;
   padding: 20px;
-  /* border: 2px solid #febcbd; */
-  margin: 0 auto;
-  /* background: #ffffc1; */
+  margin-left: 5%;
+  background: #6e1217;
+  text-align: center;
 }
-
-
 
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
+body {
+  background-image: url("../img/bar.jpg");
+  object-fit: cover;
+}

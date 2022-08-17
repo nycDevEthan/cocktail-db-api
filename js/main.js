@@ -3,6 +3,8 @@ document.querySelector('button').addEventListener('click', getFetch);
 let drinkChoiceArr = [];
 let nIntervId = 0;
 
+let ingredientItem = document.createElement('li');
+
 function getFetch(){
   const choice = document.querySelector('input').value;
   const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+choice;
@@ -10,27 +12,31 @@ function getFetch(){
   fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
+        console.log(data);
         drinkChoiceArr = data.drinks;
 
-        document.querySelector('h2').innerText = drinkChoiceArr[0].strDrink;
+        document.querySelector('h2').innerText = `Name: ${drinkChoiceArr[0].strDrink}`;
+        document.getElementById('drink-glass').innerText = `Type of Glass: ${drinkChoiceArr[0].strGlass}`;
+        document.querySelector('h3').innerText = `Instructions: ${drinkChoiceArr[0].strInstructions}`;
         document.querySelector('img').src = drinkChoiceArr[0].strDrinkThumb;
-        document.querySelector('h3').innerText = drinkChoiceArr[0].strInstructions;
       })
       .catch(err => {
           console.log(`error ${err}`)
       })
 
-      nIntervId = setInterval(displayNextDrink, 3000);
+      nIntervId = 0;
+
+      nIntervId = setInterval(displayNextDrink, 5000);
       
       nIntervId;
 
       document.querySelector('img').style.display = 'block';
 };
 
-document.getElementById('previous-button').addEventListener('click', displayPreviousDrink);
+document.getElementById('back-arrow').addEventListener('click', displayPreviousDrink);
+document.getElementById('right-arrow').addEventListener('click', displayNextDrink);
 document.getElementById('pause-button').addEventListener('click', pauseDrinkDisplay);
 document.getElementById('resume-button').addEventListener('click', resumeDrinkDisplay);
-document.getElementById('next-button').addEventListener('click', displayNextDrink);
 
 let currentDrink = 0;
 
@@ -42,9 +48,10 @@ function displayPreviousDrink() {
     currentDrink--;
   }
 
-  document.querySelector('h2').innerText = drinkChoiceArr[currentDrink].strDrink;
+  document.querySelector('h2').innerText = `Name: ${drinkChoiceArr[currentDrink].strDrink}`;
   document.querySelector('img').src = drinkChoiceArr[currentDrink].strDrinkThumb;
-  document.querySelector('h3').innerText = drinkChoiceArr[currentDrink].strInstructions;
+  document.querySelector('h3').innerText = `Instructions: ${drinkChoiceArr[0].strInstructions}`;
+  document.getElementById('drink-glass').innerText = `Type of Glass: ${drinkChoiceArr[currentDrink].strGlass}`;
 }
 
 function pauseDrinkDisplay() {
@@ -54,7 +61,7 @@ function pauseDrinkDisplay() {
 }
 
 function resumeDrinkDisplay() {
-  nIntervId = setInterval(displayNextDrink, 3000);
+  nIntervId = setInterval(displayNextDrink, 5000);
 }
 
 function displayNextDrink() {
@@ -64,7 +71,7 @@ function displayNextDrink() {
     currentDrink++;
   }
 
-  document.querySelector('h2').innerText = drinkChoiceArr[currentDrink].strDrink;
+  document.querySelector('h2').innerText = `Name: ${drinkChoiceArr[currentDrink].strDrink}`;
   document.querySelector('img').src = drinkChoiceArr[currentDrink].strDrinkThumb;
   document.querySelector('h3').innerText = drinkChoiceArr[currentDrink].strInstructions;
 }

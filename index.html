@@ -12,29 +12,37 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-
-		<h1>What are you drinking?</h1>
-		<input type="text" name="" value="">
-		<button type="button" name="button" id="get-cocktail-button">Show Cocktail</button>
+		<h1>Good Times Cocktail Bar</h1>
+		<h4>Search the menu for your favorite type of drinks or find something new!</h4>
+		<div id="drink-search">
+			<input type="text" name="" value="">
+			<button type="button" name="button">Search Menu</button>
+		</div>
 		<br>
 		<div id="buttons">
-			<div>
-				<button type="button" name="button" id="previous-button" class="buttons">Previous</button>
-				<button type="button" name="button" id="next-button" class="buttons">Next</button>
-			</div>
-			<div>
-				<button type="button" name="button" id="pause-button" class="buttons">Pause</button>
-				<button type="button" name="button" id="resume-button" class="buttons">Resume</button>
-			</div>
+				<span id="back-arrow" style="font-size: 50px; color: #e99920;">
+					<i class="fa-solid fa-arrow-left"></i>
+				</span>
+				<span id="right-arrow" style="font-size: 50px; color: #e99920;">
+					<i class="fa-solid fa-arrow-right"></i>
+				</span>
+				<span id="pause-button" style="font-size: 50px; color: #e99920;">
+					<i class="fa-solid fa-pause"></i>
+				</span>
+				<span id="resume-button" style="font-size: 50px; color: #e99920;">
+					<i class="fa-solid fa-play"></i>
+				</span>
 		</div>
 		<div id="drink-info">
 			<div>
 				<h2>Drink Name</h2>
 				<h3>Drink Instructions</h3>
+				<p id="drink-glass">Type of glass</p>
 			</div>
-			<img src="img/bar.jpg" alt="">
+			<img src="img/bartender.jpg" alt="">
 		</div>
 
 		<script type="text/javascript" src="js/main.js"></script>
+		<script src="https://kit.fontawesome.com/aa46dd559a.js" crossorigin="anonymous"></script>
 	</body>
 </html>
