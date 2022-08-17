@@ -1,11 +1,12 @@
 document.querySelector('button').addEventListener('click', getFetch);
 
 let drinkChoiceArr = [];
+let nIntervId = 0;
 
 function getFetch(){
   const choice = document.querySelector('input').value;
   const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+choice;
-
+  
   fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
@@ -18,6 +19,12 @@ function getFetch(){
       .catch(err => {
           console.log(`error ${err}`)
       })
+
+      nIntervId = setInterval(displayNextDrink, 3000);
+      
+      nIntervId;
+
+      document.querySelector('img').style.display = 'block';
 };
 
 document.getElementById('previous-button').addEventListener('click', displayPreviousDrink);
@@ -27,10 +34,6 @@ document.getElementById('next-button').addEventListener('click', displayNextDrin
 
 let currentDrink = 0;
 
-let nIntervId = setInterval(displayNextDrink, 3000);
-
-nIntervId;
-
 function displayPreviousDrink() {
 
   if (currentDrink === 0) {
@@ -38,8 +41,6 @@ function displayPreviousDrink() {
   } else {
     currentDrink--;
   }
-
-
 
   document.querySelector('h2').innerText = drinkChoiceArr[currentDrink].strDrink;
   document.querySelector('img').src = drinkChoiceArr[currentDrink].strDrinkThumb;
@@ -53,7 +54,7 @@ function pauseDrinkDisplay() {
 }
 
 function resumeDrinkDisplay() {
-  let nIntervId = setInterval(displayNextDrink, 3000);
+  nIntervId = setInterval(displayNextDrink, 3000);
 }
 
 function displayNextDrink() {

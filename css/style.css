@@ -5,6 +5,7 @@
 /* Box Model Hack */
 *{
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 /******************************************
@@ -16,17 +17,29 @@ body {
   object-fit: cover;
 }
 
-img{
-  display: block;
-  margin: 0 auto;
-  width: 500px;
-  height: auto;
+input, button {
+  font-size: 2rem;
+}
+
+input {
+  background: pink;
+}
+
+button {
+  cursor: pointer;
+  /* color: #fff4e0; */
+  background: #fcfc8a;
+  border: none;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, .5);
 }
 
 input {
   display: flex;
   text-align: center;
-  margin: auto;
+  margin: 20px auto;
 }
 
 #get-cocktail-button {
@@ -37,30 +50,54 @@ input {
 
 #buttons {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
 .buttons {
   text-align: center;
-  /* margin: auto; */
+  margin: 2px;
+}
 
+#drink-info {
+  display: flex;
+  flex-flow: row;
+  gap: 20px;
+  /* margin: 2% 0 0 0; */
 }
 
 h1, h2, h3 {
   text-align: center;
   color: white;
-  background: #fdabcf;
-  /* padding: 1%; */
-  border: 2px solid #f7c528;
-  border-radius: 5%;
+  background: #94ddd4;
+  padding: 1%;
+  border: 2px solid #febcbd;
+  /* border-radius: 5%; */
   margin: 1% auto;
-  width: 20%;
+  width: auto;
+}
+
+h1 {
+  font-size: 5rem;
+  width: 30%;
+}
+
+h2 {
+  font-size: 3rem;
+  /* margin-top: 100px; */
 }
 
 h3 {
-  width: 50%;
+  font-size: 3rem;
+}
+
+img{
+  /* display: none; */
+  width: 750px;
+  height: auto;
+  padding: 20px;
+  /* border: 2px solid #febcbd; */
+  margin: 0 auto;
+  /* background: #ffffc1; */
 }
 
 
